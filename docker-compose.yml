@@ -1,0 +1,60 @@
+version: '3.7'
+services:
+  inertia:
+    build:    
+      context: .
+    image: inertia:latest
+    container_name: inertia
+    hostname: inertia
+    restart: unless-stopped
+    tty: true
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=inertia-db
+      - DB_PORT=3320
+      - DB_DATABASE=inertia
+      - DB_USERNAME=inertia
+      - DB_PASSWORD=00000000
+    working_dir: /var/www/app
+    ports:
+      - '120:80'
+      - '5173:5173'
+    volumes:
+      - ./src:/var/www/app
+    networks:
+      - jetdocker  
+  inertia-phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: inertia-phpmyadmin
+    restart: unless-stopped
+    tty: true
+    environment:
+      - PMA_HOST=inertia-db
+      - PMA_PORT=3320
+      - PMA_USER=inertia
+      - PMA_PASSWORD=00000000
+    ports:
+      - '130:80'
+    networks:
+      - jetdocker
+  inertia-db:
+    image: mariadb:latest
+    container_name: inertia-db
+    hostname: inertia-db
+    restart: unless-stopped
+    tty: true
+    environment:
+      - MARIADB_DATABASE=inertia
+      - MARIADB_USER=inertia
+      - MARIADB_PASSWORD=00000000
+      - MARIADB_ROOT_PASSWORD=00000000
+    command: --port=3320 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - '3320:3320'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - jetdocker
+networks:
+  jetdocker:
+    driver: bridge
