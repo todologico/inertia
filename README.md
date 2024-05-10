@@ -1,6 +1,6 @@
 [![Jetstream Docker](https://raw.githubusercontent.com/todologico/jetstream-docker/main/laravel-jet.jpg)](https://github.com/todologico/jetstream-docker)
 
-##  Laravel Jetstream con Inertia (Vuejs) ​- Docker - Listo para instalar 
+##  Laravel Jetstream con Inertia (Vuejs) 
 ### Laravel 11 - Jetstream 5 - MariaDB - phpMyAdmin
 
 **Instalación no productiva:**  
@@ -16,22 +16,25 @@ Ingreso al contenedor con usuario no root (appuser):
 **su appuser**  
 **composer require laravel/jetstream**  
 **php artisan jetstream:install inertia**  
-**npm install**  
-**npm run build**  
+**npm install && npm run build**  
 **php artisan migrate**    
 
-El contenedor de laravel se visualiza en http://localhost:89/  
+El servidor de Inertia con Node corre en el puerto 5173, por defecto, para activarlo, dentro del contenedor con usuario no root, correr el comando:
+**npm run dev**    
 
+Acceso a servicios en dom:
 
-El contenedor de phpmyadmin se visualiza en http://localhost:99/   
+El contenedor de laravel se visualiza en http://localhost:120/  
 
-Configuracion acceso DB en file .env que se ingresa automaticamente desde el file entrypoint 
+El contenedor de phpmyadmin se visualiza en http://localhost:130/   
+
+Configuracion acceso DB en file .env que se ingresa automaticamente desde el file docker-entrypoint.sh
 
 DB_CONNECTION=mysql  
-DB_HOST=jetlar-db  
-DB_PORT=3312  
-DB_DATABASE=jetlar  
-DB_USERNAME=jetlar  
+DB_HOST=inertia-db  
+DB_PORT=3320  
+DB_DATABASE=inertia  
+DB_USERNAME=inertia  
 DB_PASSWORD=00000000  
 
 **COMANDOS CON PHP ARTISAN DENTRO DEL CONTENEDOR**
@@ -49,7 +52,7 @@ RUN usermod -aG www-data $USER_NAME
 
 y para poder correr comandos, se ingresa al contenedor y se cambia de usuario, corriendo:
 
-**docker exec -it jetlar bash**  
+**docker exec -it inertia bash**  
 
 revisamos todos los usuarios, verificando que el nuestro se encuentra activo:
 
@@ -65,7 +68,7 @@ verificamos que accedemos a artisan:
 
 Opcionalmente puede hacerse directamente desde el interior del contenedor:  
 
-**docker exec -it jetlar bash**  
+**docker exec -it inertia bash**  
 **adduser appuser**  
 **usermod -aG www-data appuser**  
 **id nuevo_usuario**  
