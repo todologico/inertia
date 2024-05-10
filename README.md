@@ -1,0 +1,2 @@
+# inertia
+Laravel Inertia Vuejs
