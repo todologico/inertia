@@ -1,6 +1,6 @@
 [![Jetstream Docker](https://github.com/todologico/inertia/blob/main/laravel-jet.jpg)](https://github.com/todologico/inertia)
 
-##  Laravel Jetstream con Inertia (Vuejs) 
+##  Laravel Jetstream con Inertia - Vuejs 
 ### Laravel 11 - Jetstream 5 - MariaDB - phpMyAdmin
 
 **Instalación no productiva:**  
@@ -9,7 +9,7 @@ Clonar el repositorio.
 
 Situados en /jetstream-docker, desde la consola ejecutar el siguiente comando, el cual creara las carpeta "db" (volumen mariadb) y "src" (codigo laravel) y levantará los contenedores de los tres servicios.
 
-**mkdir -p src && mkdir -p db && docker-compose up -d**  
+**mkdir src db && docker-compose up -d**  
 
 Ingreso al contenedor con usuario no root (appuser):
 
