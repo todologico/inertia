@@ -1,4 +1,4 @@
-[![Jetstream Docker](https://raw.githubusercontent.com/todologico/jetstream-docker/main/laravel-jet.jpg)](https://github.com/todologico/jetstream-docker)
+[![Jetstream Docker](https://github.com/todologico/inertia/blob/main/laravel-jet.jpg)](https://github.com/todologico/inertia)
 
 ##  Laravel Jetstream con Inertia (Vuejs) 
 ### Laravel 11 - Jetstream 5 - MariaDB - phpMyAdmin
