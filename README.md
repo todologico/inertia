@@ -17,7 +17,20 @@ Ingreso al contenedor con usuario no root (appuser):
 **composer require laravel/jetstream**  
 **php artisan jetstream:install inertia**  
 **npm install && npm run build**  
-**php artisan migrate**    
+**php artisan migrate**   
+
+En el file vite.config.js se debe agregar el hot reload:
+
+    server: {
+        // respond to all network requests (same as '0.0.0.0')
+        host: true,
+        // we need a strict port to match on PHP side
+        strictPort: true,
+        port: 5173,
+        hmr: {            
+            
+        }
+    },
 
 El servidor de Inertia con Node corre en el puerto 5173, por defecto, para activarlo, dentro del contenedor con usuario no root, correr el comando:
 **npm run dev**    
