@@ -1,22 +1,185 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AppLayout from '@/Layouts/AppLayoutPanel.vue';
 import Welcome from '@/Components/Welcome.vue';
+const props = defineProps(['products']);
 </script>
 
 <template>
     <AppLayout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
+        <!-- Content start -->
+							<div class="h-full">
+								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+                                    <div class="container mx-auto">
+                                        <div class="card adaptable-card">
+                                            <div class="card-body">
+                                                <div class="lg:flex items-center justify-between mb-4">
+                                                    <h3 class="mb-4 lg:mb-0">Products</h3>
+                                                </div>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <Welcome />
-                </div>
-            </div>
-        </div>
+												<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+													<div class="card card-border">
+														<div class="card-body">
+															<div class="flex justify-between items-center">
+																<div class="flex items-center gap-4">
+																	<span class="avatar avatar-rounded !bg-indigo-600 text-2xl" data-avatar-size="55">
+																		<span
+																			class="avatar-icon">
+																			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																				<path stroke-linecap="round" stroke-linejoin="round"
+																					d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+																				</path>
+																			</svg>
+																		</span>
+																	</span>
+																	<div>
+																		<span>Total Customers</span>
+																		<h3>
+																			<span>2,420</span>
+																		</h3>
+																	</div>
+																</div>
+																<div class="tag gap-1 font-bold border-0 text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/20">
+																	<span>
+																		<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																			<path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+																		</svg>
+																	</span>
+																	<span>17.2%</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="card card-border">
+														<div class="card-body">
+															<div class="flex justify-between items-center">
+																<div class="flex items-center gap-4">
+																	<span class="avatar avatar-rounded !bg-blue-500 text-2xl" data-avatar-size="55">
+																		<span class="avatar-icon">
+																			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																				<path stroke-linecap="round" stroke-linejoin="round"
+																					d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+																				</path>
+																			</svg>
+																		</span>
+																	</span>
+																	<div>
+																		<span>Active Customers</span>
+																		<h3>
+																			<span>1,897</span>
+																		</h3>
+																	</div>
+																</div>
+																<div class="tag gap-1 font-bold border-0 text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/20">
+																	<span>
+																		<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																			<path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+																		</svg>
+																	</span>
+																	<span>32.7%</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="card card-border" role="presentation">
+														<div class="card-body">
+															<div class="flex justify-between items-center">
+																<div class="flex items-center gap-4">
+																	<span class="avatar avatar-rounded !bg-emerald-500 text-2xl" data-avatar-size="55">
+																		<span class="avatar-icon">
+																			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																				<path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+																			</svg>
+																		</span>
+																	</span>
+																	<div>
+																		<span>New Customers</span>
+																		<h3>
+																			<span>241</span>
+																		</h3>
+																	</div>
+																</div>
+																<div class="tag gap-1 font-bold border-0 text-red-600 dark:text-red-500 bg-red-100 dark:bg-red-500/20">
+																	<span>
+																		<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+																			<path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+																		</svg>
+																	</span>
+																	<span>-2.3%</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+                                                <div class="overflow-x-auto">
+                                                    <table id="product-list-data-table" class="table-default table-hover data-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Category</th>
+                                                                <th>Status</th>
+                                                                <th>Price</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          
+                                                      
+                                                  
+                                                            <tr v-for="product in props.products" :key="product.id">
+                                                               
+                                                                <td><span class="capitalize">{{ product.prod1_code }}</span></td>
+                      
+                                                                
+                                                                <td><span class="capitalize">{{ product.prod1_product }}</span></td>
+
+                                                                <td><span class="capitalize">$AR {{ product.prod1_price1 }}</span></td>
+
+                                                                <td><span class="capitalize">{{ product.prod1_title1 }}</span></td>
+
+                                                                <td><span class="capitalize">{{ product.prod1_title2 }}</span></td>
+
+                                                                <td><span class="capitalize">{{ product.prod1_image1 }}</span></td>
+
+                                                                <td><span class="capitalize">{{ product.prod1_image2 }}</span></td>                                                        
+                                                               
+                                                                <td>
+                                                                    <div class="flex items-center gap-2">
+                                                                        <span class="badge-dot bg-emerald-500"></span>
+                                                                        <span class="capitalize font-semibold text-emerald-500">In Stock</span>
+                                                                    </div>
+                                                                </td>
+                                                               
+                                                                <td>
+                                                                    <div class="flex justify-end text-lg">
+                                                                        <span class="cursor-pointer p-2 hover:text-indigo-600">
+                                                                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span class="cursor-pointer p-2 hover:text-red-500">
+                                                                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                      
+
+                                                        </tbody>
+                                                    </table>
+
+
+											
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+							</div>                       
     </AppLayout>
 </template>
