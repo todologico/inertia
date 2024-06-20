@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					<!-- Side Nav start-->
 					<div class="side-nav side-nav-transparent side-nav-expand" style="background-color:#D8D7D6;">
 						<div class="side-nav-header">
-							<div class="logo px-6">
-								<img src="img/logo/logo-light-full.png" alt="Elstar logo">
+							<div class="logo px-6"><h2>Inertia Panel</h2>
+								
 							</div>
 						</div>
 						<div class="side-nav-content relative side-nav-scroll">
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 							<footer class="footer flex flex-auto items-center h-16 px-4 sm:px-6 md:px-8">
 								<div class="flex items-center justify-between flex-auto w-full">
-									<span>Copyright © 2024 <span class="font-semibold">Todologico</span> All rights reserved.</span>
+									<span>Copyright © 2024 <span class="font-semibold">Inertia A.R.D</span> All rights reserved.</span>
 									<div>
 										<a class="text-gray" href="">Term &amp; Conditions</a>
 										<span class="mx-2 text-muted"> | </span>
