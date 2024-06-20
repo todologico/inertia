@@ -116,21 +116,24 @@ const props = defineProps(['products']);
                                                     <table id="product-list-data-table" class="table-default table-hover data-table">
                                                         <thead>
                                                             <tr>
-                                                                <th>Name</th>
-                                                                <th>Category</th>
-                                                                <th>Status</th>
-                                                                <th>Price</th>
-                                                                <th></th>
+                                                                <th>ID</th>
+                                                                <th>Code</th>
+                                                                <th>Product</th>
+                                                                <th>price</th>
+                                                                <th>Title1</th>
+                                                                <th>Title2</th>
+                                                                <th>Image1</th>
+                                                                <th>Image2</th>
+                                                                <th>Stock</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                          
-                                                      
                                                   
-                                                            <tr v-for="product in props.products" :key="product.id">
+                                                            <tr v-for="product in props.products" :key="product.prod1_id">
+
+                                                                <td><span class="capitalize">{{ product.prod1_id }}</span></td>
                                                                
-                                                                <td><span class="capitalize">{{ product.prod1_code }}</span></td>
-                      
+                                                                <td><span class="capitalize">{{ product.prod1_code }}</span></td>                      
                                                                 
                                                                 <td><span class="capitalize">{{ product.prod1_product }}</span></td>
 
@@ -166,15 +169,8 @@ const props = defineProps(['products']);
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                      
-
                                                         </tbody>
-                                                    </table>
-
-
-											
-
-
+                                                    </table>	
                                                 </div>
                                             </div>
                                         </div>
