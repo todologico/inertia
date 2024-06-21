@@ -1,11 +1,13 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayoutPanel.vue';
-import Welcome from '@/Components/Welcome.vue';
-const props = defineProps(['products']);
+import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
+import { ref } from 'vue';
+const data = defineProps(['products']);
+const searchQuery = ref('');
+
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayoutPanel title="Dashboard">
         <!-- Content start -->
 							<div class="h-full">
 								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
@@ -83,28 +85,14 @@ const props = defineProps(['products']);
 													<div class="card card-border" role="presentation">
 														<div class="card-body">
 															<div class="flex justify-between items-center">
-																<div class="flex items-center gap-4">
-																	<span class="avatar avatar-rounded !bg-emerald-500 text-2xl" data-avatar-size="55">
-																		<span class="avatar-icon">
-																			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																				<path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-																			</svg>
-																		</span>
-																	</span>
-																	<div>
-																		<span>New Customers</span>
-																		<h3>
-																			<span>241</span>
-																		</h3>
-																	</div>
-																</div>
-																<div class="tag gap-1 font-bold border-0 text-red-600 dark:text-red-500 bg-red-100 dark:bg-red-500/20">
-																	<span>
-																		<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																			<path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-																		</svg>
-																	</span>
-																	<span>-2.3%</span>
+																<div class="tag gap-1 font-bold border-0">	
+																	<div class="form-item inline">
+                                                                        <label class="form-label h-11 ltr:pr-2 rtl:pl-2">Search: &nbsp;</label>
+                                                                        <div>
+																			{{ searchQuery }}<br>
+                                                                            <input class="input" v-model="searchQuery" maxlength="30" type="text" placeholder="Your search" value="">
+                                                                        </div>																		
+                                                                    </div>
 																</div>
 															</div>
 														</div>
@@ -129,7 +117,7 @@ const props = defineProps(['products']);
                                                         </thead>
                                                         <tbody>
                                                   
-                                                            <tr v-for="product in props.products" :key="product.prod1_id">
+                                                            <tr v-for="product in data.products" :key="product.prod1_id">
 
                                                                 <td><span class="capitalize">{{ product.prod1_id }}</span></td>
                                                                
@@ -177,5 +165,5 @@ const props = defineProps(['products']);
                                     </div>    
                                 </div>
 							</div>                       
-    </AppLayout>
+    </AppLayoutPanel>
 </template>

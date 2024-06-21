@@ -1,7 +1,5 @@
 <script setup>
-import { ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
-
 
 document.addEventListener('DOMContentLoaded', function () {
 	const menuCollapses = document.querySelectorAll('.menu-collapse');
