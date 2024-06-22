@@ -20,7 +20,6 @@ const filteredProducts = computed(() => {
     return (
       product.prod1_product.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
       product.prod1_code.toLowerCase().includes(searchQuery.value.toLowerCase())
-      // Puedes agregar más condiciones de filtrado según necesites para otros campos
     );
   });
 });
