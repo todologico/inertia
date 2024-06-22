@@ -3,12 +3,15 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\Prod1;
+use Auth;
 
 
 class DashboardController extends Controller
 {
     public function dashboardMain(Request $request)
     {
+
+        $user = Auth::user();
      
         if($request->has("search")){
 
@@ -24,8 +27,10 @@ class DashboardController extends Controller
             $products = Prod1::all();
 
         }
+
+        $something='- pasando info al componente';
    
-        return Inertia::render('Dashboard', ['products' => $products]);
+        return Inertia::render('Dashboard', ['products' => $products,'something' => $something,'user' => $user]);
 
     }
 }

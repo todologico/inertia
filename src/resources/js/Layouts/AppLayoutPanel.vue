@@ -46,14 +46,15 @@ document.addEventListener('DOMContentLoaded', function () {
 					<!-- Side Nav start-->
 					<div class="side-nav side-nav-transparent side-nav-expand" style="background-color:#D8D7D6;">
 						<div class="side-nav-header">
-							<div class="logo px-6"><h2>Inertia Panel</h2>
+							<div class="logo px-6">
+
 								
 							</div>
 						</div>
 						<div class="side-nav-content relative side-nav-scroll">
 							<nav class="menu menu-transparent px-4 pb-4">
 								<div class="menu-group">
-									<div class="menu-title">Módulos</div>
+									<div class="menu-title">Inertia Admin Panel</div>
 									<ul>
 										<li class="menu-collapse">
 											<div class="menu-collapse-item">
@@ -223,32 +224,10 @@ document.addEventListener('DOMContentLoaded', function () {
 								</div>
 								<!-- Header Nav Start end-->
 								<!-- Header Nav End start -->
-								<div class="header-action header-action-end">								
-									<!-- User Dropdown-->
-									<div class="dropdown">
-										<div class="dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown">
-											<div class="header-action-item flex items-center gap-2">
-												<span class="avatar avatar-circle" data-avatar-size="32" style="width: 32px">
-												<img class="avatar-img avatar-circle" src="img/avatars/thumb-1.jpg" loading="lazy" alt=""></span>
-												<div class="hidden md:block">
-													<div class="text-xs capitalize">admin</div>
-													<div class="font-bold">Carolyn Perkins</div>
-												</div>
-											</div>
-										</div>
-										<ul class="dropdown-menu bottom-end min-w-[240px]">										
-										
-											<li id="menu-item-29-2VewETdxAb" class="menu-item-divider"></li>
-											<li class="menu-item menu-item-hoverable gap-2 h-[35px]">
-												<span class="text-xl opacity-50">
-													<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-													</svg>
-												</span>
-												<span>Sign Out</span>
-											</li>
-										</ul>
-									</div>
+								<div class="header-action header-action-end">	
+									
+									<div class="font-bold">User: </div> - <Link href="/logout" method="post"><div class="font-bold">Logout</div></Link>							
+								
 								</div>
 								<!-- Header Nav End end -->
 							</div>

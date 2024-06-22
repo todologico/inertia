@@ -2,14 +2,15 @@
 import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
 import { ref, defineProps, computed } from 'vue';
 
-const props = defineProps(['products']);
-const title = ref('aaaaaaaaaaaaaa');
+const props = defineProps(['products','something','user']);
 const search = ref('');
 
 </script>
 
 <template>
+
     <AppLayoutPanel>
+
         <!-- Content start -->
 							<div class="h-full">
 								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
@@ -17,7 +18,7 @@ const search = ref('');
                                         <div class="card adaptable-card">
                                             <div class="card-body">
                                                 <div class="lg:flex items-center justify-between mb-4">
-                                                    <h3 class="mb-4 lg:mb-0">Products</h3>
+                                                    <h3 class="mb-4 lg:mb-0">Products {{ something }} {{ user.name }}</h3>
                                                 </div>
 
 												<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
