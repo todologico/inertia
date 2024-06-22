@@ -1,6 +1,8 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
 
+defineProps({ title: String});
+
 document.addEventListener('DOMContentLoaded', function () {
 	const menuCollapses = document.querySelectorAll('.menu-collapse');
 
@@ -23,11 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-
-
 </script>
 
-<template> <AppLayout title="Dashboard">
+<template> 
 
     <Head>
     <title>Dashboard</title>
@@ -280,5 +280,5 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
 
 	</body>
-</AppLayout>
+
 </template>

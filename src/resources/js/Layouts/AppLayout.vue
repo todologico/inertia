@@ -8,9 +8,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
-defineProps({
-    title: String,
-});
+defineProps({ title: String});
 
 const showingNavigationDropdown = ref(false);
 

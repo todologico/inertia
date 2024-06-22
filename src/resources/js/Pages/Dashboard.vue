@@ -1,32 +1,15 @@
 <script setup>
-// Importación del componente de layout
 import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
-
-// Importación de funciones reactivas y de definición de props
 import { ref, defineProps, computed } from 'vue';
 
-// Definición de props que se esperan recibir en este componente
 const props = defineProps(['products']);
+const title = ref('aaaaaaaaaaaaaa');
+const search = ref('');
 
-// Referencia reactiva para el campo de búsqueda
-const searchQuery = ref('');
-
-// Filtrar productos basado en el searchQuery
-const filteredProducts = computed(() => {
-  if (!props.products) return []; // Manejo de casos donde props.products puede ser nulo o indefinido
-  
-  // Filtrar productos basado en el campo de búsqueda (product.prod1_product y product.prod1_code)
-  return props.products.filter(product => {
-    return (
-      product.prod1_product.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      product.prod1_code.toLowerCase().includes(searchQuery.value.toLowerCase())
-    );
-  });
-});
 </script>
 
 <template>
-    <AppLayoutPanel title="Dashboard">
+    <AppLayoutPanel>
         <!-- Content start -->
 							<div class="h-full">
 								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
@@ -108,8 +91,8 @@ const filteredProducts = computed(() => {
 																	<div class="form-item inline">
                                                                         <label class="form-label h-11 ltr:pr-2 rtl:pl-2">Search: &nbsp;</label>
                                                                         <div>
-																			{{ searchQuery }}<br>
-                                                                            <input class="input" v-model="searchQuery" maxlength="30" type="text" placeholder="Your search" value="">
+																			{{ search }}<br>
+                                                                            <input class="input" v-model="search" maxlength="30" type="text" placeholder="Your search" value="">
                                                                         </div>																		
                                                                     </div>
 																</div>
@@ -136,7 +119,7 @@ const filteredProducts = computed(() => {
                                                         </thead>
                                                         <tbody>
                                                   
-                                                            <tr v-for="product in filteredProducts" :key="product.prod1_id">
+                                                            <tr v-for="product in products" :key="product.prod1_id">
 
                                                                 <td><span class="capitalize">{{ product.prod1_id }}</span></td>
                                                                
