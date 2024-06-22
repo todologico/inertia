@@ -1,9 +1,29 @@
 <script setup>
+// Importación del componente de layout
 import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
-import { ref } from 'vue';
-const data = defineProps(['products']);
+
+// Importación de funciones reactivas y de definición de props
+import { ref, defineProps, computed } from 'vue';
+
+// Definición de props que se esperan recibir en este componente
+const props = defineProps(['products']);
+
+// Referencia reactiva para el campo de búsqueda
 const searchQuery = ref('');
 
+// Filtrar productos basado en el searchQuery
+const filteredProducts = computed(() => {
+  if (!props.products) return []; // Manejo de casos donde props.products puede ser nulo o indefinido
+  
+  // Filtrar productos basado en el campo de búsqueda (product.prod1_product y product.prod1_code)
+  return props.products.filter(product => {
+    return (
+      product.prod1_product.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      product.prod1_code.toLowerCase().includes(searchQuery.value.toLowerCase())
+      // Puedes agregar más condiciones de filtrado según necesites para otros campos
+    );
+  });
+});
 </script>
 
 <template>
@@ -117,7 +137,7 @@ const searchQuery = ref('');
                                                         </thead>
                                                         <tbody>
                                                   
-                                                            <tr v-for="product in data.products" :key="product.prod1_id">
+                                                            <tr v-for="product in filteredProducts" :key="product.prod1_id">
 
                                                                 <td><span class="capitalize">{{ product.prod1_id }}</span></td>
                                                                
