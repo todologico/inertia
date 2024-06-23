@@ -4,11 +4,10 @@ import { useForm } from '@inertiajs/vue3'; // Importamos el hook useForm de Iner
 import { ref, defineProps } from 'vue'; // Importamos ref y defineProps de Vue 3
 
 // Definimos las props recibidas por el componente
-const props = defineProps(['products']);
+const props = defineProps(['products','flag']);
 
 // Creamos refs para los datos reactivos
 const search = ref('');
-const flag = ref('');
 
 // Configuramos el formulario con useForm
 const form = useForm({

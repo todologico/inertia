@@ -15,6 +15,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     
     Route::get('/dashboard', [DashboardController::class, 'dashboardMain'])->name('dashboard');
 
-    Route::post('/search', [DashboardController::class, 'dashboardSearch'])->name('search');
+    Route::post('/dashboard', [DashboardController::class, 'dashboardSearch'])->name('search');
 
 });
