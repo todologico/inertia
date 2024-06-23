@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 	});
 
-	// Optional: Hide submenus by default
 	submenu.style.display = 'none';
 	});
 });

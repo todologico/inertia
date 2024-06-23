@@ -3,22 +3,12 @@ import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
 import { useForm } from '@inertiajs/vue3'; // Importamos el hook useForm de Inertia.js
 import { ref, defineProps } from 'vue'; // Importamos ref y defineProps de Vue 3
 
-// Definimos las props recibidas por el componente
 const props = defineProps(['products','flag']);
-
 const search = ref('');
+const form = useForm({ search: null });
 
-// Configuramos el formulario con useForm
-const form = useForm({
-  search: null // Inicializamos el campo 'search' en el formulario
-});
-
-// Función para manejar el envío del formulario
 const handleSubmit = () => {
-  form.post(route('search'), {
-    // Datos a enviar en la solicitud POST
-    search: search.value
-  });
+  form.post(route('search'), { search: search.value });
 };
 
 </script>
