@@ -1,9 +1,27 @@
 <script setup>
 import AppLayoutPanel from '@/Layouts/AppLayoutPanel.vue';
-import { ref, defineProps, computed } from 'vue';
+import { useForm } from '@inertiajs/vue3'; // Importamos el hook useForm de Inertia.js
+import { ref, defineProps } from 'vue'; // Importamos ref y defineProps de Vue 3
 
-const props = defineProps(['products','something','user']);
+// Definimos las props recibidas por el componente
+const props = defineProps(['products']);
+
+// Creamos refs para los datos reactivos
 const search = ref('');
+const flag = ref('');
+
+// Configuramos el formulario con useForm
+const form = useForm({
+  search: null // Inicializamos el campo 'search' en el formulario
+});
+
+// Función para manejar el envío del formulario
+const handleSubmit = () => {
+  form.post(route('search'), {
+    // Datos a enviar en la solicitud POST
+    search: search.value
+  });
+};
 
 </script>
 
@@ -18,7 +36,7 @@ const search = ref('');
                                         <div class="card adaptable-card">
                                             <div class="card-body">
                                                 <div class="lg:flex items-center justify-between mb-4">
-                                                    <h3 class="mb-4 lg:mb-0">Products {{ something }} {{ user.name }}</h3>
+                                                    <h3 class="mb-4 lg:mb-0">Products {{ flag }}</h3>
                                                 </div>
 
 												<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
@@ -92,9 +110,16 @@ const search = ref('');
 																	<div class="form-item inline">
                                                                         <label class="form-label h-11 ltr:pr-2 rtl:pl-2">Search: &nbsp;</label>
                                                                         <div>
+																			<form @submit.prevent="handleSubmit">
+																			<!-- Campo de búsqueda -->
 																			{{ search }}<br>
-                                                                            <input class="input" v-model="search" maxlength="30" type="text" placeholder="Your search" value="">
-                                                                        </div>																		
+																			<input class="input" v-model="form.search" maxlength="30" type="text" placeholder="Your search">
+																			<div v-if="form.errors.search">{{ form.errors.search }}</div>
+																			
+																			<!-- Botón de búsqueda -->
+																			<button type="submit" :disabled="form.processing">Buscar</button>
+																		    </form>
+																		</div>																		
                                                                     </div>
 																</div>
 															</div>
